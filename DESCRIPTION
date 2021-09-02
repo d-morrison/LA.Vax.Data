@@ -6,8 +6,16 @@ Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/d-morrison/LA.Vax.Data
 BugReports: https://github.com/d-morrison/LA.Vax.Data/issues
+Depends: 
+    R (>= 2.10)
+RoxygenNote: 7.1.1
+Imports: 
+    fs,
+    dplyr,
+    magrittr,
+    readr

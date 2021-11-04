@@ -19,13 +19,14 @@ load_data = function(
 {
 
   data1 = readr::read_csv(data_folder_path,
-                          na = c("", "NA", "Unreliable Data"),
+                          na = c("", "NA", "Unreliable Data" , "--"),
                           col_types =
                             readr::cols(
-                              `Date (Dose 1)` = readr::col_date(format = "%m/%d/%y")
+                              `Date` = readr::col_date(format = "%m/%d/%y")
                               # `Cumulative 65+ (Dose 1)` = parse_number(na = "Unreliable Data")
                               # `Cumulative Percentage 65+ (Dose 1)` = col_number()
-                            ))
+                            )) %>%
+    rename(`Date (Dose 1)` = `Date`)
 
   data1 %<>% dplyr::mutate(
 

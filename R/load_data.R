@@ -27,7 +27,10 @@ load_data = function(
                               # `Cumulative Percentage 65+ (Dose 1+)` = col_number()
                             )) %>%
     rename(`Date (Dose 1+)` = `Date`) %>%
+    dplyr::arrange(`Date (Dose 1+)`) %>%
+    dplyr::group_by(Community) %>%
     tidyr::fill(`Cumulative 65+ (Dose 1+)`, `Cumulative 12-17 (Dose 1+)`, `Cumulative 12+ (Dose 1+)`) %>%
+    ungroup() %>%
     dplyr::mutate(
 
     pct65 = `Cumulative 65+ (Dose 1+)`/`Population (65+)` * 100,

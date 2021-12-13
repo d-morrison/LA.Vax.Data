@@ -16,7 +16,6 @@ extract_vax_last = function(la.vax)
       `Population (12-17)`,
       `Cumulative 12-17 (Dose 1+)`,
       `% vaccinated 12-17`,
-      `Date (Dose 1+)`) %>%
-    rename(Date = `Date (Dose 1+)`)
+      Date)
 
 }

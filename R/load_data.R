@@ -22,10 +22,22 @@ load_data = function(
                           na = c("", "NA", "Unreliable Data" , "--"),
                           col_types =
                             readr::cols(
+                              `Number all Vaccinated (Dose 1+)` = col_number(),
+                              `Cumulative all (Dose 1+)` = col_number(),
+                              # `Cumulative Percentage all (Dose 1+)` = col_number(),
+                              `Number all Vaccinated (Fully vaccinated)` = col_number(),
+                              `Cumulative all (Fully vaccinated)` = col_number(),
+                              # `Cumulative Percentage all (Fully vaccinated)` = col_number(),
+                              `Number all Vaccinated (Received 1+ additional dose)` = col_number(),
+                              `Cumulative all (Received 1+ additional dose)` = col_number(),
+
+
                               Date = readr::col_date(format = "%m/%d/%y")
                               # `Cumulative 65+ (Dose 1+)` = parse_number(na = "Unreliable Data")
                               # `Cumulative Percentage 65+ (Dose 1+)` = col_number()
-                            )) %>%
+                            ))
+
+  data1 %<>%
     dplyr::arrange(Date) %>%
     dplyr::group_by(Community) %>%
     tidyr::fill(`Cumulative 65+ (Dose 1+)`, `Cumulative 12-17 (Dose 1+)`, `Cumulative 12+ (Dose 1+)`) %>%
